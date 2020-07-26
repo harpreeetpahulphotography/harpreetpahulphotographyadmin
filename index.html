@@ -1,0 +1,346 @@
+<!--
+=========================================================
+Material Dashboard - v2.1.2
+=========================================================
+
+Product Page: https://www.creative-tim.com/product/material-dashboard
+Copyright 2020 Creative Tim (https://www.creative-tim.com)
+Coded by Creative Tim
+
+=========================================================
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <!-- <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png"> -->
+  <!-- <link rel="icon" type="image/png" href="../assets/img/favicon.png"> -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    Admin | Contract
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files -->
+  <link href="material-dashboard.css?v=2.1.2" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="demo.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style type="text/css">
+  .h{
+    padding: 10px;
+    width:100px;
+    box-shadow: 5px 5px 18px red;
+    text-shadow: 10px 5px 6px red;
+
+  }
+
+
+  #b1{
+    padding:
+    background-color:
+    margin;
+  }
+  #b1:hover{
+    background-color: red;
+  }
+
+
+</style>
+<body class="">
+  <div class="wrapper ">
+
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Create a new Contract</h4>
+                  <p class="card-category">Enter the details here</p>
+                </div>
+                <div class="card-body">
+
+                    <div class="row">
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label class="bmd-label-floating" >Main event name</label>
+                          <input type="text" class="form-control" id="name">
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Client Name</label>
+                          <input type="text" class="form-control" id="clientName">
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Budget Price</label>
+                          <input type="text" class="form-control" id="price">
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Password</label>
+                          <input type="password" class="form-control" id="pass">
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Confirm Password</label>
+                          <input type="password" class="form-control" id="cpass">
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary pull-right" onclick="addEvent()">+</button>
+                    <div class="row" id="subEvent">
+
+                      <div class="card-header card-header-primary">
+                        <p class="card-category">Sub Event</p>
+                      </div>
+
+                      <div class="col-md-3" >
+                        <div class="form-group">
+                          <label class="bmd-label-floating" >Main event name</label>
+                          <input type="text" class="form-control" id="mainEventName0">
+                        </div>
+                        <div id="facility0">
+                          <div class="form-group">
+                            <div class="form-group">
+                              <label>Facility Provided</label>
+                              <input type="text" class="form-control" id="facilityName00">
+                            </div>
+                          </div>
+                        </div>
+                        <button class="btn btn-primary pull-right" data-index="0" data-subindex="1" onclick="addFacility(event);">+</button>
+                      </div>
+                    </div>
+                    <br><br>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label class="bmd-label-floating">Description</label>
+                        <textarea type="text" class="form-control"  style="height: 9em !important;border:2px solid black;padding: 5px;border-radius: 10px" id="desc"></textarea>
+                      </div>
+                    </div>
+                    <button class="btn btn-primary pull-right" id="pushbtn" onclick="pushData()">Submit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-12">
+        <div class="card card-profile" id="imghere">
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <script src="material-dashboard.js?v=2.1.2" type="text/javascript"></script>
+  <script src="demo.js"></script>
+  <!-- <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script> -->
+  <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase.js"></script>
+  <script type="text/javascript">
+
+  var firebaseConfig = {
+        apiKey: "AIzaSyCPqE2ec9UFt9VnPU3i4wsC2-Le23GpgPc",
+        authDomain: "harpreetpahulphotography-f2d09.firebaseapp.com",
+        databaseURL: "https://harpreetpahulphotography-f2d09.firebaseio.com",
+        projectId: "harpreetpahulphotography-f2d09",
+        storageBucket: "harpreetpahulphotography-f2d09.appspot.com",
+        messagingSenderId: "1061490631813",
+        appId: "1:1061490631813:web:5ac0debcacb8f7e71a75ec"
+      };
+      firebase.initializeApp(firebaseConfig);
+
+      let allEvents = firebase.database().ref('allEvents');
+      let formMessage = firebase.database().ref('CrewDetails');
+      let ref2= firebase.database().ref('allEvents');
+
+      ref2.on('value',gotData,errData);
+
+      var  uploader = document.getElementById('uploader');
+      var selectedFile;
+      // fileSubmit.addEventListener('change', uploadFile);
+      var progress;
+
+      var j=0;
+      var facultiesCouter;
+      var indexMain = 0;
+
+      function addFacility(event){
+        var index = event.path[0].dataset.index;
+        indexMain = index;
+        // console.log(event.path[0].dataset.subindex);
+        var subindex = event.path[0].dataset.subindex;
+
+        j++;
+        document.getElementById('facility'+index);
+        var anotherFacility = document.createElement('div');
+        anotherFacility.innerHTML+='<div class="form-group"><div class="form-group"><label>Facility Provided</label><input type="text" class="form-control" id="facilityName'+index+subindex+'"></div></div>';
+        document.querySelector('#facility'+index).appendChild(anotherFacility);
+      }
+
+      function addEvent(){
+        indexMain++;
+        var subindex = 0
+        var subEvent = document.createElement('div');
+        subEvent.classList.add('col-md-3');
+        subEvent.innerHTML= `
+                        <div class="form-group">
+                          <label class="bmd-label-floating" >Main event name</label>
+                          <input type="text" class="form-control" id="mainEventName${indexMain}">
+                        </div>
+                        <div id="facility${indexMain}">
+                          <div class="form-group">
+                            <div class="form-group">
+                              <label>Facility Provided</label>
+                              <input type="text" class="form-control" id="facilityName${indexMain}${subindex}">
+                            </div>
+                          </div>
+                        </div>
+                        <button class="btn btn-primary pull-right" data-index="${indexMain}" data-subindex="{subindex+1}" onclick="addFacility(event);">+</button>
+                      `;
+        document.querySelector('#subEvent').appendChild(subEvent);
+      }
+
+
+      function pushData(){
+        facilitiesProvidedArray = {};
+        if(sc==null){
+          var clientName=document.querySelector('#clientName').value
+          var name=document.querySelector('#name').value
+          var price=document.querySelector('#price').value
+          var pass=document.querySelector('#pass').value
+          var cpass=document.querySelector('#cpass').value
+          var desc=document.querySelector('#desc').value
+          if(name!=""&&price!=""&&clientName!=""){
+            if(cpass==pass && (cpass!=""&&pass!="")){
+                var answer=confirm("Are you sure to upload the data ");
+                if(answer){
+                  var a;
+
+                  for(var c = 0; c <= indexMain; c++) {
+                    var f = document.querySelector(`#facility${c}`);
+                    a = f.querySelectorAll('.form-control');
+
+                    for(let val of a){
+                      // console.log(val.value);
+
+                      facilitiesProvidedArray[document.querySelector(`#mainEventName${c}`).value]+=val.value+",";
+                    }
+
+                  }
+                  console.log(facilitiesProvidedArray)
+                  let data = {
+                    EventName:name,
+                    Client:clientName,
+                    Budget:price,
+                    Facilities: facilitiesProvidedArray,
+                    Password:pass,
+                    Description:desc
+                  };
+                  // console.log(data);
+                  allEvents.push().set(data);
+                  alert("Contract is Live Now")
+                  window.location="admin.html"
+
+                }
+              }else{
+                alert("Password Mismatch")
+              }
+            }else{
+              alert("Please enter all the details")
+            }
+          }else{
+            alert("Previous Contract is running Still")
+
+          }
+
+        }
+
+      // Display all the Members Details Present//
+      var names,post,description,imgurl,keys,k,sc;
+      function gotData(data){
+        var sc=data.val();
+
+        keys=Object.keys(sc);
+
+        for(var i=0;i<keys.length;i++){
+          count=0;
+          k=keys[i];
+          Image=sc[k].Image
+          document.getElementById("imghere").innerHTML=
+          `<div class="w3-display-container ">
+          <a href="`+Image+`" download><button onclick=deletecontract("`+k+`") class="w3-button w3-large w3-theme w3-hover-teal" title="Accept">Accept</button></a>
+          <br>
+            <img src="`+Image+`"  style="width:100%;">
+            <div class="w3-container w3-display-bottomleft w3-margin-bottom">
+
+            </div>
+
+          </div>`
+        if(sc!=null){
+
+          document.getElementById("pushbtn").disabled = true;
+          document.getElementById("pushbtn").style.backgroundColor ="gray";
+
+        }else{
+          document.getElementById("pushbtn").style.backgroundColor ="#9c27b0";
+          document.getElementById("pushbtn").disabled = false;
+        }
+      }
+    }
+      function errData(err) {
+        console.log('error');
+        console.log(err);
+      }
+
+
+
+      function deletecontract(keyid){
+        var ans=confirm("This action will ACCEPT & DELETE your contract")
+        if(ans){
+          firebase.database().ref("allEvents").child(keyid).remove();
+          window.location="admin.html"
+        }
+
+      }
+
+      function sendMessage(Name , Post ,Description ,Url){
+        let newFormMessage = formMessage.push();
+
+          newFormMessage.set({
+
+          Name : Name,
+          Post : Post,
+          Description : Description,
+          Image: Url,
+          Status:"Active"
+
+        });
+
+
+      }
+
+  </script>
+
+
+
+</body>
+
+</html>
