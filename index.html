@@ -141,6 +141,12 @@ The above copyright notice and this permission notice shall be included in all c
                         <textarea type="text" class="form-control"  style="height: 9em !important;border:2px solid black;padding: 5px;border-radius: 10px" id="desc"></textarea>
                       </div>
                     </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label class="bmd-label-floating">Facilities Provided :</label>
+                        <textarea type="text" class="form-control"  style="height: 5em !important;border:2px solid black;padding: 5px;border-radius: 10px" id="service"></textarea>
+                      </div>
+                    </div>
                     <button class="btn btn-primary pull-right" id="pushbtn" onclick="pushData()">Submit</button>
                 </div>
               </div>
@@ -242,12 +248,12 @@ The above copyright notice and this permission notice shall be included in all c
           var pass=document.querySelector('#pass').value
           var cpass=document.querySelector('#cpass').value
           var desc=document.querySelector('#desc').value
+          var service=document.querySelector('#service').value
           if(name!=""&&price!=""&&clientName!=""){
             if(cpass==pass && (cpass!=""&&pass!="")){
                 var answer=confirm("Are you sure to upload the data ");
                 if(answer){
                   var a;
-
                   for(var c = 0; c <= indexMain; c++) {
                     var f = document.querySelector(`#facility${c}`);
                     a = f.querySelectorAll('.form-control');
@@ -268,7 +274,8 @@ The above copyright notice and this permission notice shall be included in all c
                     Budget:price,
                     Facilities: facilitiesProvidedArray,
                     Password:pass,
-                    Description:desc
+                    Description:desc,
+                    Service:service
                   };
                   // console.log(data);
                   allEvents.push().set(data);
