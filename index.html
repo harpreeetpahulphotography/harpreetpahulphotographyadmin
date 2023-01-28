@@ -199,6 +199,7 @@ The above copyright notice and this permission notice shall be included in all c
       var indexMain = 0;
 
       function addFacility(event){
+        console.log(event);
         var index = event.path[0].dataset.index;
         indexMain = index;
         // console.log(event.path[0].dataset.subindex);
@@ -233,7 +234,7 @@ The above copyright notice and this permission notice shall be included in all c
                             </div>
                           </div>
                         </div>
-                        <button class="btn btn-primary pull-right" data-index="${indexMain}" data-subindex="{subindex+1}" onclick="addFacility(event);">+</button>
+                        <button class="btn btn-primary pull-right" data-index="${indexMain}" style="background-color:orange !important" data-subindex="{subindex+1}" onclick="addFacility(event);">+</button>
                       `;
         document.querySelector('#subEvent').appendChild(subEvent);
       }
