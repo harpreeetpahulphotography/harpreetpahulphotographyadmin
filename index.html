@@ -200,7 +200,8 @@ The above copyright notice and this permission notice shall be included in all c
 
       function addFacility(event){
         console.log(event);
-        var index = event.path[0].dataset.index;
+        console.log(event.target);
+        var index = event.target[0].dataset.index;
         indexMain = index;
         // console.log(event.path[0].dataset.subindex);
         var subindex = event.path[0].dataset.subindex;
